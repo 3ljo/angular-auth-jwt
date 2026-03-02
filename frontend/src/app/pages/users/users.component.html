@@ -1,0 +1,47 @@
+<div class="page-content">
+
+  <div class="page-header">
+    <div>
+      <h2>All Users</h2>
+      <p class="page-subtitle">Everyone registered on the platform</p>
+    </div>
+    @if (!loading && !errorMessage) {
+      <span class="badge">{{ users.length }} total</span>
+    }
+  </div>
+
+  @if (loading) {
+    <div class="loading">Loading users...</div>
+  } @else if (errorMessage) {
+    <div class="alert-error">{{ errorMessage }}</div>
+  } @else if (users.length === 0) {
+    <div class="empty-state">No users found.</div>
+  } @else {
+    <div class="table-wrapper">
+      <table class="users-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>User</th>
+            <th>Email</th>
+            <th>Member Since</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of users; track user._id; let i = $index) {
+            <tr>
+              <td class="td-index">{{ i + 1 }}</td>
+              <td class="td-user">
+                <div class="table-avatar">{{ user.username[0].toUpperCase() }}</div>
+                <span class="td-username">{{ user.username }}</span>
+              </td>
+              <td class="td-email">{{ user.email }}</td>
+              <td class="td-date">{{ user.createdAt | date: 'mediumDate' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+
+</div>

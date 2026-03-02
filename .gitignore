@@ -1,0 +1,32 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build output
+dist/
+/tmp
+/out-tsc
+
+# Angular cache
+.angular/cache
+
+# Environment / secrets
+.env
+*.local
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+
+# Claude AI local settings
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+**/.claude/settings.local.json

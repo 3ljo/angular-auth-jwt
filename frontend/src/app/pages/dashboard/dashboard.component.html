@@ -1,0 +1,30 @@
+<div class="page-content page-content--centered">
+
+  @if (loading) {
+    <div class="loading">Loading your profile...</div>
+  } @else if (errorMessage) {
+    <div class="alert-error">{{ errorMessage }}</div>
+  } @else if (user) {
+    <div class="profile-card">
+      <div class="avatar">{{ user.username[0].toUpperCase() }}</div>
+      <h2>{{ user.username }}</h2>
+      <p class="email">{{ user.email }}</p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">User ID</span>
+          <span class="info-value">{{ user._id }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Member since</span>
+          <span class="info-value">{{ user.createdAt | date: 'mediumDate' }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Last updated</span>
+          <span class="info-value">{{ user.updatedAt | date: 'mediumDate' }}</span>
+        </div>
+      </div>
+    </div>
+  }
+
+</div>
