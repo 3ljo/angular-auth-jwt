@@ -1,7 +1,5 @@
-# Node
+# Dependencies
 node_modules/
-npm-debug.log
-yarn-error.log
 
 # Build output
 dist/
@@ -23,10 +21,9 @@ dist/
 !.vscode/extensions.json
 .idea/
 
-# Claude AI local settings
-.claude/settings.local.json
-
 # OS
 .DS_Store
 Thumbs.db
-**/.claude/settings.local.json
+
+# Claude AI
+.claude/
